@@ -1,35 +1,20 @@
-// Function called when the form is submitted.
-// Function validates the form data and returns a Boolean value.
 function validateForm() {
-    'use strict';
-    
-    // Get references to the form elements:
-    var name = document.getElementById('name');
-    var email = document.getElementById('email');
-	var date = document.getElementById('date');
-
-    // Validate!
-    if ( (email.value.length > 0) && (password.value.length > 0) ) {
-        return true;
-    } else {
-        alert('Please complete the form!');
+    var jobForm = document.getElementById('jobForm');
+    // check name
+    if (!(/^[a-zA-Z][a-zA-Z\s]*$/.test(jobForm.name.value))) {
+        alert('Name is invalid.');
         return false;
     }
-    
-} // End of validateForm() function.
-
-// Function called when the window has been loaded.
-// Function needs to add an event listener to the form.
-function init() {
-    'use strict';
-    
-    // Confirm that document.getElementById() can be used:
-    if (document && document.getElementById) {
-        var loginForm = document.getElementById('loginForm');
-        loginForm.onsubmit = validateForm;
+    // check email
+    if (!(/^[\w.-]+@([\w]+\.){1,3}[\w]{2,3}$/.test(jobForm.email.value))){
+        alert('Email is invalid.')
+        return false;
     }
-
-} // End of init() function.
-
-// Assign an event listener to the window's load event:
-window.onload = init;
+    // check date
+    var inputDate = new Date(jobForm.startDate.value);
+    var today = new Date();
+    if (inputDate <= today) {
+        alert('Date should be from tomorrow onwards.');
+        return false;
+    }
+}
