@@ -39,14 +39,26 @@
             <tr>
                 <td><strong>Just Java </strong></td>
                 <td>Regular house blend, decaffeinated coffee, or flavor of the day<br>Endless Cup $2.00</td>
+                <td><input type="number" id="justJavaQuantity" name="justJavaQuantity" value=0 onchange="calculatePrice();"></td>
+                <td><input type="text" id="justJavaTotalPrice" name="justJavaTotalPrice" value=0.0 onfocus="this.blur();"></td>
             </tr>
             <tr>
                 <td><strong>Cafe au Lait </strong></td>
-                <td>House blended coffee infused into a smooth, steamed milk<br>Single $2.00 Double $3.00</td>
+                <td>House blended coffee infused into a smooth, steamed milk<br>
+                    <input type="radio" id="cafeAuLaitSingle" name="cafeAuLait" value="single" onchange="calculatePrice();" checked>Single $2.00 <input type="radio" id="cafeAuLaitDouble" name="cafeAuLait" value="double" onchange="calculatePrice();">Double $3.00</td>
+                <td><input type="number" id="cafeAuLaitQuantity" name="cafeAuLaitQuantity" value=0 onchange="calculatePrice();"></td>
+                <td><input type="text" id="cafeAuLaitTotalPrice" name="cafeAuLaitTotalPrice" value=0.0 onfocus="this.blur();"></td>
             </tr>
             <tr>
                 <td><strong>Iced Cappuccino</strong></td>
-                <td>Sweetened Espresso Blended with icy-cold milk and served in a chilled glass<br>Single $4.75 Double $5.75</td>
+                <td>Sweetened Espresso Blended with icy-cold milk and served in a chilled glass <br>
+                    <input type="radio" id="icedCappuccinoSingle" name="icedCappucino" value="single" onchange="calculatePrice();" checked>Single $4.75 <input type="radio" id="icedCappuccinoDouble" name="icedCappucino" value="double" onchange="calculatePrice();">Double $5.75</td>
+                <td><input type="number" value=0 id="icedCappuccinoQuantity" name="icedCappuccinoQuantity" onchange="calculatePrice();"></td>
+                <td><input type="text" value=0.0 id="icedCappuccinoTotalPrice" name="icedCappuccinoTotalPrice" onfocus="this.blur();"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">Total Price</td>
+                <td colspan="2"><input id="totalPrice" type="text" style="width:100px; height:20px;" value=0.0 onfocus="this.blur();"></td>
             </tr>
         </table>
     </div>
